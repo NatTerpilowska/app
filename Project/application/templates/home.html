@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block body %}
+
+    {% for story in stories %}
+        <div class = "story"> 
+            {{ story.id }} - {{ story.description }} - {{ "👾" if story.completed else " " }}
+            <br>
+            {% if story.card %}
+                {{ story.card.name }}
+                <br>
+            {% endif %}
+        
+            <a href="{{ url_for('update', id=story.id) }}">Update</a>
+            <a href="{{ url_for('delete', id=story.id) }}">Delete</a>
+            <br>
+    
+            {% if story.completed %}
+                <a href="{{ url_for('incomplete', id=story.id) }}">Mark as Unused</a>
+            {% else %}
+                <a href="{{ url_for('complete', id=story.id) }}">Mark as Used</a>
+            {% endif %}
+             
+            <br>
+            <br>
+        </div>
+    {% endfor %}
+
+{% endblock body %}
