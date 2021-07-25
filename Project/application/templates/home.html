@@ -8,7 +8,7 @@
 
     {% for story in stories %}
         <div class = "story"> 
-            {{ story.id }} - {{ story.description }} - {{ "👾" if story.completed else " " }}
+            {{ story.id }} 🐉 {{ story.description }} 🐉 {{ "👾" if story.completed else " " }}
             <br>
             {% if story.card %}
                 {{ story.card.name }}
