@@ -20,9 +20,9 @@
             <br>
     
             {% if story.completed %}
-                <a href="{{ url_for('incomplete', id=story.id) }}">Mark as incomplete</a>
+                <a href="{{ url_for('incomplete', id=story.id) }}">Mark as Unused</a>
             {% else %}
-                <a href="{{ url_for('complete', id=story.id) }}">Mark as Complete</a>
+                <a href="{{ url_for('complete', id=story.id) }}">Mark as Used</a>
             {% endif %}
              
             <br>
